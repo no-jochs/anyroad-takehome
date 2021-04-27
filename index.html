@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./styles/style.css" rel="stylesheet" />
+        <title>AnyRoad Take-Home</title>
+    </head>
+    <body>
+        <div class="main-container">
+            <div type="button" class="rectangle" data-id="1"></div>
+            <div type="button" class="rectangle" data-id="2"></div>
+            <div type="button" class="rectangle" data-id="3"></div>
+            <div type="button" class="rectangle" data-id="4"></div>
+            <div type="button" class="rectangle" data-id="5"></div>
+            <div type="button" class="rectangle" data-id="6"></div>
+            <div type="button" class="rectangle" data-id="7"></div>
+            <div type="button" id="shuffle-btn" class="rectangle">
+                <span class="btn-text">Shuffle</span>
+            </div>
+        </div>
+        <script>
+        let rgbColors = [
+            [148,0,211], [75, 0, 130], [0, 0, 255], [0, 255, 0], [255, 255, 0], [255, 127, 0], [255, 0, 0]
+        ]
+        const stringifyRGB = rgb_vals => `rgb(${rgb_vals.toString()})`;
+
+        const rectangles = document.querySelectorAll("[data-id]");
+
+        const shuffleElements = array => {
+            let randArray = array.map(n => [n, Math.random()]);
+            randArray = randArray.sort((a, b) => (a[1] - b[1]));
+            return randArray.map(el => el[0]);
+        };
+
+        const shuffleColors = () => {
+            let shuffledColors = shuffleElements(rgbColors);
+            shuffledColors.forEach((color, i) => {
+                rectangles[i].setAttribute(
+                    "style", `background-color: ${stringifyRGB(color)};`
+                    );
+                }
+            );
+        };
+        const clickListener = document.getElementById('shuffle-btn').
+                            onclick = shuffleColors;
+        document.onreadystatechange = shuffleColors;
+    </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+}
+
+.main-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 15px;
+    max-width: fit-content;
+}
+
+.rectangle {
+    height: 40px;
+    width: 120px;
+    border-radius: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+#shuffle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #333;
+    color: #333;
+}
